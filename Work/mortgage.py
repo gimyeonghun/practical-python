@@ -15,10 +15,12 @@ while principal > 0:
     month = month + 1
     principal = principal * (1+rate/12) - payment
     total_paid = total_paid + payment
-    print(month, total_paid, principal)
+   
     if month > extra_payment_start_month and month <= extra_payment_end_month:
         principal = principal - extra_payment
         total_paid = total_paid + extra_payment
-        
-print('Total paid', total_paid)
-print("Months", month)
+    print(month, round(total_paid,2), round(principal, 2))
+
+     
+print(f'Total paid {round(total_paid,2)}')
+print(f"Months {month}")

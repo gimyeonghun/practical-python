@@ -2,15 +2,14 @@
 #
 # Exercise 1.27
 
-
+import csv
 
 def portfolio_cost(filename):
     tcost = 0.0
     with open(filename, 'rt') as f:
-        headers = next(f).split(',')
-        for line in f:
-            row = line.split(',')
-            print(tcost)
+        f = csv.reader(f)
+        headers = next(f)
+        for row in f:
             tcost = tcost + (float(row[1]) * float(row[2]))
     return tcost
 

@@ -2,7 +2,7 @@
 #
 # Exercise 1.27
 
-import csv
+import csv,sys
 
 def portfolio_cost(filename):
     tcost = 0.0
@@ -13,9 +13,12 @@ def portfolio_cost(filename):
             tcost = tcost + (float(row[1]) * float(row[2]))
     return tcost
 
+if len(sys.argv) == 2:
+    filename = sys.argv[1]
+else:
+    filename = 'Data/portfolio.csv'
 
-
-cost = portfolio_cost('Data/portfolio.csv')
+cost = portfolio_cost(filename)
 
 print(f"Total cost {cost}")
        

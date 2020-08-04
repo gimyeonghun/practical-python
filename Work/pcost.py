@@ -2,15 +2,15 @@
 #
 # Exercise 1.27
 
-import csv,sys
+import csv
+import sys
+import fileparse
 
 def portfolio_cost(filename):
     tcost = 0.0
-    with open(filename, 'rt') as f:
-        f = csv.reader(f)
-        headers = next(f)
-        for row in f:
-            tcost = tcost + (float(row[1]) * float(row[2]))
+    data = fileparse.parse_csv(filename, types=[str, float, float])
+    for row in data:
+        tcost = tcost + (row['shares'] * row['price'])
     return tcost
 
 if len(sys.argv) == 2:
